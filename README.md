@@ -20,3 +20,22 @@ Unlike traditional signature-based security tools, SRTA focuses on **system beha
 
 ## 🏗️ Architecture
 
+- **Agent**: Monitors system processes and reports risky activity  
+- **Server**: Calculates trust score, stores logs, and exposes APIs  
+- **Dashboard / UI App**: Visualizes trust score and system status  
+
+---
+
+## 📁 Project Structure
+
+SRTA version2/
+│
+├── server.py
+├── agent/
+│ └── agent.py
+├── ui_app.py
+├── templates/
+│ └── dashboard.html
+├── logs/
+│ └── activity.log
+
