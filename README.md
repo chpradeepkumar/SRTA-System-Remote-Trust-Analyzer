@@ -26,16 +26,4 @@ Unlike traditional signature-based security tools, SRTA focuses on **system beha
 
 ---
 
-## 📁 Project Structure
-
-SRTA version2/
-│
-├── server.py
-├── agent/
-│ └── agent.py
-├── ui_app.py
-├── templates/
-│ └── dashboard.html
-├── logs/
-│ └── activity.log
 
