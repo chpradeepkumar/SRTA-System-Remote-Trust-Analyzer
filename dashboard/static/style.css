@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #0a0f1c, #05070d 70%);
+    color: #00f7ff;
+}
+
+/* HEADER */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 38px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px #00f7ff, 0 0 35px #00f7ff;
+    animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+    from {
+        text-shadow: 0 0 10px #00f7ff;
+    }
+
+    to {
+        text-shadow: 0 0 30px #00f7ff;
+    }
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #00f7ff;
+}
+
+/* GLASS PANELS */
+.card {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(0, 20, 40, 0.6);
+    box-shadow: 0 0 25px rgba(0, 247, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 247, 255, 0.3);
+}
+
+/* BUTTON */
+button {
+    display: block;
+    margin: 15px auto;
+    padding: 12px 25px;
+    font-size: 16px;
+    color: #00f7ff;
+    background: linear-gradient(90deg, #001f2f, #003b55);
+    border: 1px solid #00f7ff;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00f7ff;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00f7ff;
+}
+
+/* LOADING ANIMATION */
+.loader {
+    margin: 10px auto;
+    border: 5px solid #001f2f;
+    border-top: 5px solid #00f7ff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background: #001f2f;
+    border-bottom: 1px solid #00f7ff;
+}
+
+tr:nth-child(even) {
+    background: rgba(0, 247, 255, 0.05);
+}
+
+/* COLORS */
+.safe {
+    color: #00ff88;
+}
+
+.suspicious {
+    color: #ffaa00;
+}
+
+.risk {
+    color: #ff3b3b;
+}
+
+/* NETWORK TABLE */
+#netTable {
+    width: 100%;
+}
