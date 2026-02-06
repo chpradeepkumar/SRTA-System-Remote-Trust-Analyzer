@@ -1,280 +1,180 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>SRTA Security Command Center</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-    <style>
-        body {
-            background: #0b0f17;
-            color: white;
-            font-family: Arial;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .top-bar {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        button {
-            padding: 8px 14px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .scan-btn {
-            background: #00ffaa;
-            color: black;
-        }
-
-        .report-btn {
-            background: #ffaa00;
-            color: black;
-        }
-
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .loader {
-            display: none;
-            text-align: center;
-            margin: 10px;
-            font-weight: bold;
-            color: #00ffaa;
-            animation: pulse 1s infinite alternate;
-        }
-
-        @keyframes pulse {
-            from {
-                opacity: 0.3;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        th,
-        td {
-            border: 1px solid #1f2a38;
-            padding: 6px;
-            text-align: center;
-        }
-
-        th {
-            background: #111a24;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: #0a0f1a;
-            border: 2px solid #00ffee;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            color: white;
-            box-shadow: 0 0 20px #00ffee;
-            width: 320px;
-        }
-
-        .confirm-btn {
-            background: red;
-            color: white;
-        }
-
-        .cancel-btn {
-            background: #00ffee;
-            color: black;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>SRTA • Hybrid Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<body>
+<body class="normal">
 
-    <h1>🛡 SRTA Security Command Center</h1>
+    <div class="bg simple-bg"></div>
+    <div class="bg hacker-bg"></div>
 
-    <div class="top-bar">
-        <button id="scanBtn" class="scan-btn" onclick="startScan()">🔍 Scan System</button>
-        <button class="report-btn" onclick="window.location='/export'">📁 Export Threat Report</button>
-    </div>
+    <aside class="sidebar">
+        <div class="brand">SRTA</div>
+        <nav>
+            <a class="active">Dashboard</a>
+            <a>Processes</a>
+            <a>Network</a>
+            <a>Reports</a>
+        </nav>
 
-    <div id="loader" class="loader">⏳ Scanning system... please wait</div>
-
-    <h2 id="systemScore" style="text-align:center;">System Trust Score: --</h2>
-    <h2 id="threatLevel" style="text-align:center;">Threat Level: --</h2>
-
-    <canvas id="historyChart" height="90"></canvas>
-
-    <table id="resultsTable"></table>
-
-    <h2>🌐 Active Network Connections</h2>
-    <table id="netTable">
-        <tr>
-            <th>Local Address</th>
-            <th>Remote Address</th>
-            <th>Status</th>
-        </tr>
-    </table>
-
-    <h2>🌍 Global Active Connections Map</h2>
-    <div id="map" style="height:400px;margin-top:10px;"></div>
-
-    <!-- Kill Modal -->
-    <div id="killModal" class="modal">
-        <div class="modal-content">
-            <h3 id="appName">App Name</h3>
-            <p>Terminate this application?</p>
-            <button class="confirm-btn" onclick="confirmKill()">Yes, Kill</button>
-            <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+        <div class="toggle-box">
+            <label class="switch">
+                <input type="checkbox" onchange="toggleMode(this)">
+                <span class="slider"></span>
+            </label>
+            <span>Threat View</span>
         </div>
-    </div>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <h1>System Overview</h1>
+            <div id="riskBadge" class="risk medium">MEDIUM</div>
+        </header>
+
+        <section class="stats">
+            <div class="stat">
+                <label>Trust Score</label>
+                <h2 id="trustScore">--</h2>
+            </div>
+            <div class="stat">
+                <label>Threat Level</label>
+                <h2 id="threatLevel">--</h2>
+            </div>
+            <div class="stat">
+                <label>Processes</label>
+                <h2 id="procCount">--</h2>
+            </div>
+            <div class="stat">
+                <label>Last Scan</label>
+                <h2 id="scanTime">--</h2>
+            </div>
+        </section>
+
+        <section class="grid">
+
+            <div class="card large">
+                <h3>Process Risk Analysis</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Process</th>
+                            <th>CPU</th>
+                            <th>Trust</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="processTable"></tbody>
+                </table>
+            </div>
+
+            <div class="side">
+                <div class="card">
+                    <h3>Controls</h3>
+                    <button onclick="runScan()">Run Scan</button>
+                    <button class="export" onclick="exportPDF()">Export PDF</button>
+                </div>
+
+                <div class="card">
+                    <h3>Connections</h3>
+                    <div id="connections" class="connections"></div>
+                </div>
+            </div>
+
+        </section>
+    </main>
 
     <script>
-        let chartInstance = null;
-        let selectedPIDs = [];
-        let map = L.map('map').setView([20, 0], 2);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(map);
+        function toggleMode(el) {
+            document.body.className = el.checked ? "hacker" : "normal";
+        }
 
-        function startScan() {
-            document.getElementById("scanBtn").disabled = true;
-            document.getElementById("loader").style.display = "block";
-
-            fetch('/scan', { method: 'POST' })
+        function runScan() {
+            fetch("/scan")
                 .then(r => r.json())
                 .then(data => {
-                    updateTable(data);
-                    drawHistoryChart();
-                    loadConnections();
-                })
-                .finally(() => {
-                    document.getElementById("loader").style.display = "none";
-                    document.getElementById("scanBtn").disabled = false;
+                    const table = document.getElementById("processTable");
+                    table.innerHTML = "";
+                    let total = 0;
+
+                    data.forEach(p => {
+                        total += p.score;
+                        table.innerHTML += `
+          <tr>
+            <td>${p.name}</td>
+            <td>${p.cpu}</td>
+            <td>
+              <div class="bar">
+                <span style="width:${p.score}%"></span>
+              </div>
+            </td>
+            <td>
+              <button class="kill" onclick="confirmKill(${p.pid}, '${p.name}')">✕</button>
+            </td>
+          </tr>`;
+                    });
+
+                    const avg = Math.round(total / data.length);
+                    trustScore.innerText = avg;
+                    procCount.innerText = data.length;
+                    scanTime.innerText = new Date().toLocaleTimeString();
+
+                    let lvl = "SAFE", cls = "safe";
+                    if (avg < 50) { lvl = "HIGH"; cls = "danger"; }
+                    else if (avg < 80) { lvl = "MEDIUM"; cls = "medium"; }
+
+                    threatLevel.innerText = lvl;
+                    riskBadge.innerText = lvl;
+                    riskBadge.className = "risk " + cls;
                 });
-        }
 
-        function updateTable(data) {
-            let grouped = {};
-            data.forEach(p => {
-                if (!grouped[p.name]) {
-                    grouped[p.name] = { name: p.name, cpu: 0, score: p.score, pids: [], count: 0 };
-                }
-                grouped[p.name].cpu += p.cpu;
-                grouped[p.name].score = Math.min(grouped[p.name].score, p.score);
-                grouped[p.name].pids.push(p.pid);
-                grouped[p.name].count++;
-            });
-
-            let finalData = Object.values(grouped).sort((a, b) => a.score - b.score);
-            let table = document.getElementById("resultsTable");
-            table.innerHTML = "<tr><th>App</th><th>Instances</th><th>CPU%</th><th>Score</th><th>Status</th><th>Action</th></tr>";
-
-            let total = 0;
-            finalData.forEach(p => {
-                total += p.score;
-                let row = table.insertRow();
-                row.style.color = p.score < 50 ? "red" : p.score < 80 ? "orange" : "lightgreen";
-
-                row.insertCell(0).innerText = p.name;
-                row.insertCell(1).innerText = p.count;
-                row.insertCell(2).innerText = p.cpu.toFixed(1);
-                row.insertCell(3).innerText = p.score;
-                row.insertCell(4).innerText = p.score < 50 ? "HIGH" : p.score < 80 ? "MEDIUM" : "SAFE";
-
-                let action = row.insertCell(5);
-                let btn = document.createElement("button");
-                btn.innerText = "Kill";
-                btn.onclick = function () { openKillModal(p.name, p.pids); };
-                action.appendChild(btn);
-            });
-
-            let avg = Math.round(total / finalData.length);
-            document.getElementById("systemScore").innerText = "System Trust Score: " + avg;
-            document.getElementById("threatLevel").innerText = avg < 50 ? "🔴 HIGH" : avg < 80 ? "🟡 MEDIUM" : "🟢 SAFE";
-        }
-
-        function openKillModal(name, pids) {
-            selectedPIDs = pids;
-            document.getElementById("appName").innerText = name;
-            document.getElementById("killModal").style.display = "flex";
-        }
-        function closeModal() { document.getElementById("killModal").style.display = "none"; }
-        function confirmKill() {
-            selectedPIDs.forEach(pid => {
-                fetch('/kill', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ pid: pid }) });
-            });
-            closeModal();
-            setTimeout(startScan, 700);
-        }
-
-        function drawHistoryChart() {
-            fetch('/history').then(r => r.json()).then(historyData => {
-                let labels = historyData.map((_, i) => "Scan " + (i + 1));
-                if (chartInstance) chartInstance.destroy();
-                chartInstance = new Chart(document.getElementById("historyChart"), {
-                    type: 'line',
-                    data: { labels: labels, datasets: [{ label: 'System Trust Trend', data: historyData, borderColor: '#00ff88', backgroundColor: 'rgba(0,255,136,0.1)', fill: true, tension: 0.3 }] },
-                    options: { scales: { y: { min: 0, max: 100 } } }
-                });
-            });
-        }
-
-        function loadConnections() {
-            fetch('/connections').then(r => r.json()).then(data => {
-                let table = document.getElementById("netTable");
-                table.innerHTML = "<tr><th>Local Address</th><th>Remote Address</th><th>Status</th></tr>";
-
-                map.eachLayer(layer => { if (layer instanceof L.Marker) map.removeLayer(layer); });
-
-                data.forEach(c => {
-                    let row = table.insertRow();
-                    row.insertCell(0).innerText = c.local;
-                    row.insertCell(1).innerText = c.remote;
-                    row.insertCell(2).innerText = c.status;
-
-                    let ip = c.remote.split(":")[0];
-                    fetch(`https://ipapi.co/${ip}/json/`).then(r => r.json()).then(loc => {
-                        if (loc.latitude) { L.marker([loc.latitude, loc.longitude]).addTo(map).bindPopup(ip + " - " + loc.country_name); }
+            fetch("/connections")
+                .then(r => r.json())
+                .then(d => {
+                    connections.innerHTML = "";
+                    d.slice(0, 6).forEach(x => {
+                        connections.innerHTML += `<div>${x.remote}</div>`;
                     });
                 });
-            });
         }
 
-        window.onload = startScan;
+        /* ✅ CONFIRM POPUP */
+        function confirmKill(pid, name) {
+            const ok = confirm(`Do you want to terminate process:\n\n${name} (PID ${pid}) ?`);
+            if (ok) {
+                killProc(pid);
+            }
+        }
+
+        /* ✅ KILL LOGIC WITH RESPONSE */
+        function killProc(pid) {
+            fetch("/kill", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ pid: pid })
+            })
+                .then(r => r.json())
+                .then(data => {
+                    if (data.error) {
+                        alert("❌ " + data.error);
+                    } else {
+                        alert("✅ " + data.status);
+                        runScan(); // refresh
+                    }
+                })
+                .catch(err => {
+                    alert("⚠️ Kill failed: " + err);
+                });
+        }
+
+        function exportPDF() {
+            window.location = "/export";
+        }
     </script>
 
 </body>
