@@ -1,180 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <title>SRTA • Hybrid Interface</title>
+    <title>SRTA Dashboard</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
-<body class="normal">
+<body>
 
-    <div class="bg simple-bg"></div>
-    <div class="bg hacker-bg"></div>
+    <!-- LOADER -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Scanning...</p>
+    </div>
 
-    <aside class="sidebar">
-        <div class="brand">SRTA</div>
-        <nav>
-            <a class="active">Dashboard</a>
-            <a>Processes</a>
-            <a>Network</a>
-            <a>Reports</a>
-        </nav>
+    <div class="bg"></div>
 
-        <div class="toggle-box">
-            <label class="switch">
-                <input type="checkbox" onchange="toggleMode(this)">
-                <span class="slider"></span>
-            </label>
-            <span>Threat View</span>
-        </div>
-    </aside>
+    <div class="container">
 
-    <main class="main">
-
-        <header class="topbar">
-            <h1>System Overview</h1>
-            <div id="riskBadge" class="risk medium">MEDIUM</div>
+        <header class="top">
+            <h1>⚡ SRTA Dashboard</h1>
+            <button onclick="runScan()">Scan System</button>
         </header>
 
         <section class="stats">
-            <div class="stat">
-                <label>Trust Score</label>
+            <div class="card">
+                <p>Trust</p>
                 <h2 id="trustScore">--</h2>
             </div>
-            <div class="stat">
-                <label>Threat Level</label>
+            <div class="card">
+                <p>Threat</p>
                 <h2 id="threatLevel">--</h2>
             </div>
-            <div class="stat">
-                <label>Processes</label>
+            <div class="card">
+                <p>Processes</p>
                 <h2 id="procCount">--</h2>
             </div>
-            <div class="stat">
-                <label>Last Scan</label>
+            <div class="card">
+                <p>Time</p>
                 <h2 id="scanTime">--</h2>
             </div>
         </section>
 
-        <section class="grid">
+        <section class="main">
 
-            <div class="card large">
-                <h3>Process Risk Analysis</h3>
+            <div class="table-box">
+                <h3>Process Analysis</h3>
                 <table>
                     <thead>
                         <tr>
-                            <th>Process</th>
+                            <th>Name</th>
                             <th>CPU</th>
                             <th>Trust</th>
-                            <th>Action</th>
+                            <th>Kill</th>
                         </tr>
                     </thead>
-                    <tbody id="processTable"></tbody>
+                    <tbody id="table"></tbody>
                 </table>
             </div>
 
             <div class="side">
+
                 <div class="card">
-                    <h3>Controls</h3>
-                    <button onclick="runScan()">Run Scan</button>
-                    <button class="export" onclick="exportPDF()">Export PDF</button>
+                    <h3>🧠 Analysis</h3>
+                    <ul id="analysis"></ul>
                 </div>
 
                 <div class="card">
-                    <h3>Connections</h3>
-                    <div id="connections" class="connections"></div>
+                    <h3>🌐 Connections</h3>
+                    <div id="connections"></div>
                 </div>
+
             </div>
 
         </section>
-    </main>
+
+    </div>
 
     <script>
-        function toggleMode(el) {
-            document.body.className = el.checked ? "hacker" : "normal";
+
+        function showLoader() {
+            loader.style.display = "flex";
+        }
+
+        function hideLoader() {
+            loader.style.display = "none";
         }
 
         function runScan() {
-            fetch("/scan")
-                .then(r => r.json())
-                .then(data => {
-                    const table = document.getElementById("processTable");
-                    table.innerHTML = "";
-                    let total = 0;
 
-                    data.forEach(p => {
-                        total += p.score;
-                        table.innerHTML += `
-          <tr>
-            <td>${p.name}</td>
-            <td>${p.cpu}</td>
-            <td>
-              <div class="bar">
-                <span style="width:${p.score}%"></span>
-              </div>
-            </td>
-            <td>
-              <button class="kill" onclick="confirmKill(${p.pid}, '${p.name}')">✕</button>
-            </td>
-          </tr>`;
+            showLoader();
+
+            setTimeout(() => {
+
+                fetch("/scan")
+                    .then(r => r.json())
+                    .then(data => {
+
+                        let total = 0;
+                        let rows = "";
+
+                        data.forEach(p => {
+                            total += p.score;
+
+                            let color = p.score < 40 ? "#ff3b3b" : p.score < 70 ? "#facc15" : "#22c55e";
+
+                            rows += `
+<tr class="fade" style="border-left:4px solid ${color}">
+<td>${p.name}</td>
+<td>${p.cpu}</td>
+<td>${p.score}</td>
+<td><button onclick="killProc(${p.pid}, this)">X</button></td>
+</tr>`;
+                        });
+
+                        table.innerHTML = rows;
+
+                        let avg = Math.round(total / data.length);
+
+                        trustScore.innerText = avg;
+                        procCount.innerText = data.length;
+                        scanTime.innerText = new Date().toLocaleTimeString();
+
+                        let lvl = "SAFE";
+                        if (avg < 50) lvl = "HIGH";
+                        else if (avg < 80) lvl = "MEDIUM";
+
+                        threatLevel.innerText = lvl;
+
+                        /* SIMPLE ANALYSIS */
+                        let analysis = [];
+
+                        if (avg < 50) analysis.push("System risk is high");
+                        if (data.some(p => p.cpu > 80)) analysis.push("High CPU usage detected");
+
+                        if (analysis.length === 0) analysis.push("System looks stable");
+
+                        document.getElementById("analysis").innerHTML =
+                            analysis.map(x => `<li>${x}</li>`).join("");
+
+                        hideLoader();
+
                     });
 
-                    const avg = Math.round(total / data.length);
-                    trustScore.innerText = avg;
-                    procCount.innerText = data.length;
-                    scanTime.innerText = new Date().toLocaleTimeString();
-
-                    let lvl = "SAFE", cls = "safe";
-                    if (avg < 50) { lvl = "HIGH"; cls = "danger"; }
-                    else if (avg < 80) { lvl = "MEDIUM"; cls = "medium"; }
-
-                    threatLevel.innerText = lvl;
-                    riskBadge.innerText = lvl;
-                    riskBadge.className = "risk " + cls;
-                });
-
-            fetch("/connections")
-                .then(r => r.json())
-                .then(d => {
-                    connections.innerHTML = "";
-                    d.slice(0, 6).forEach(x => {
-                        connections.innerHTML += `<div>${x.remote}</div>`;
+                /* CONNECTIONS (LIMITED) */
+                fetch("/connections")
+                    .then(r => r.json())
+                    .then(d => {
+                        connections.innerHTML = "";
+                        let unique = [...new Set(d.map(x => x.remote))];
+                        unique.slice(0, 5).forEach(ip => {
+                            connections.innerHTML += `<div>${ip}</div>`;
+                        });
                     });
+
+            }, 1200);
+        }
+
+        /* KILL WITHOUT AUTO SCAN */
+        function killProc(pid, btn) {
+
+            let row = btn.closest("tr");
+            row.classList.add("fade-out");
+            btn.disabled = true;
+
+            setTimeout(() => {
+                fetch("/kill", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ pid: pid })
                 });
+            }, 400);
         }
 
-        /* ✅ CONFIRM POPUP */
-        function confirmKill(pid, name) {
-            const ok = confirm(`Do you want to terminate process:\n\n${name} (PID ${pid}) ?`);
-            if (ok) {
-                killProc(pid);
-            }
-        }
-
-        /* ✅ KILL LOGIC WITH RESPONSE */
-        function killProc(pid) {
-            fetch("/kill", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ pid: pid })
-            })
-                .then(r => r.json())
-                .then(data => {
-                    if (data.error) {
-                        alert("❌ " + data.error);
-                    } else {
-                        alert("✅ " + data.status);
-                        runScan(); // refresh
-                    }
-                })
-                .catch(err => {
-                    alert("⚠️ Kill failed: " + err);
-                });
-        }
-
-        function exportPDF() {
-            window.location = "/export";
-        }
     </script>
 
 </body>
