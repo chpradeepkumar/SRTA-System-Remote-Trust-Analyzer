@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> e6e32f0 (Updated SRTA project (scanner improvements))
 import psutil
 import time
 
