@@ -1,10 +1,17 @@
 [
     {
         "name": "AnyDesk.exe",
+<<<<<<< HEAD
         "pid": 4204,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 68.6,
+=======
+        "pid": 5720,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 67.9,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 20,
         "anomaly": false,
@@ -12,16 +19,35 @@
     },
     {
         "name": "AnyDesk.exe",
+<<<<<<< HEAD
         "pid": 17256,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 67.7,
+=======
+        "pid": 6812,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 60.5,
+        "connections": 0,
+        "score": 20,
+        "anomaly": false,
+        "reason": "Remote Access Tool"
+    },
+    {
+        "name": "AnyDesk.exe",
+        "pid": 8340,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 68.2,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 1,
         "score": 20,
         "anomaly": false,
         "reason": "Remote Access Tool"
     },
     {
+<<<<<<< HEAD
         "name": "AnyDesk.exe",
         "pid": 18596,
         "publisher": "Unknown",
@@ -49,6 +75,13 @@
         "publisher": "Unknown",
         "cpu": 28.7,
         "memory": 0.2,
+=======
+        "name": "System",
+        "pid": 4,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 0.1,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 12,
         "score": 50,
         "anomaly": false,
@@ -59,7 +92,11 @@
         "pid": 232,
         "publisher": "Unknown",
         "cpu": 0.0,
+<<<<<<< HEAD
         "memory": 55.8,
+=======
+        "memory": 64.1,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -67,7 +104,11 @@
     },
     {
         "name": "smss.exe",
+<<<<<<< HEAD
         "pid": 736,
+=======
+        "pid": 732,
+>>>>>>> 1b6ddfe (updated project)
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 1.6,
@@ -77,6 +118,7 @@
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "msedgewebview2.exe",
         "pid": 824,
         "publisher": "Unknown",
@@ -104,6 +146,13 @@
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 4.3,
+=======
+        "name": "LsaIso.exe",
+        "pid": 1280,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 4.2,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -111,6 +160,7 @@
     },
     {
         "name": "winlogon.exe",
+<<<<<<< HEAD
         "pid": 1336,
         "publisher": "Unknown",
         "cpu": 0.0,
@@ -137,6 +187,12 @@
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 7.3,
+=======
+        "pid": 1340,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 16.9,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -144,10 +200,17 @@
     },
     {
         "name": "WUDFHost.exe",
+<<<<<<< HEAD
         "pid": 1536,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 16.3,
+=======
+        "pid": 1524,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 11.1,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -155,10 +218,17 @@
     },
     {
         "name": "fontdrvhost.exe",
+<<<<<<< HEAD
         "pid": 1544,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 4.8,
+=======
+        "pid": 1532,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 4.9,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -166,10 +236,17 @@
     },
     {
         "name": "fontdrvhost.exe",
+<<<<<<< HEAD
         "pid": 1548,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 6.6,
+=======
+        "pid": 1540,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 6.5,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -177,10 +254,39 @@
     },
     {
         "name": "msedgewebview2.exe",
+<<<<<<< HEAD
         "pid": 1632,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 0.6,
+=======
+        "pid": 1696,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 13.8,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "WUDFHost.exe",
+        "pid": 1784,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 21.8,
+        "connections": 2,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "AggregatorHost.exe",
+        "pid": 1820,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 15.7,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -188,10 +294,17 @@
     },
     {
         "name": "dwm.exe",
+<<<<<<< HEAD
         "pid": 1816,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 296.5,
+=======
+        "pid": 1860,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 285.7,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -199,6 +312,7 @@
     },
     {
         "name": "msedgewebview2.exe",
+<<<<<<< HEAD
         "pid": 1884,
         "publisher": "Unknown",
         "cpu": 0.0,
@@ -214,6 +328,12 @@
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 13.4,
+=======
+        "pid": 2276,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 2.1,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -221,10 +341,17 @@
     },
     {
         "name": "msedgewebview2.exe",
+<<<<<<< HEAD
         "pid": 2012,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 1.0,
+=======
+        "pid": 2304,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 9.4,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -232,6 +359,7 @@
     },
     {
         "name": "IntelCpHDCPSvc.exe",
+<<<<<<< HEAD
         "pid": 2240,
         "publisher": "Unknown",
         "cpu": 0.0,
@@ -247,12 +375,19 @@
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 276.4,
+=======
+        "pid": 2356,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 7.8,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "backgroundTaskHost.exe",
         "pid": 2572,
         "publisher": "Unknown",
@@ -992,6 +1127,10 @@
     {
         "name": "RuntimeBroker.exe",
         "pid": 7956,
+=======
+        "name": "sihost.exe",
+        "pid": 2556,
+>>>>>>> 1b6ddfe (updated project)
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 49.8,
@@ -1002,10 +1141,127 @@
     },
     {
         "name": "msedgewebview2.exe",
+<<<<<<< HEAD
         "pid": 7968,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 7.0,
+=======
+        "pid": 2604,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 0.0,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "ShellHost.exe",
+        "pid": 3136,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 65.8,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "chrome.exe",
+        "pid": 3180,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 24.7,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "NVDisplay.Container.exe",
+        "pid": 3236,
+        "publisher": "Unknown",
+        "cpu": 28.7,
+        "memory": 101.9,
+        "connections": 2,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "WindowsTerminal.exe",
+        "pid": 3484,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 147.9,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "AppHelperCap.exe",
+        "pid": 3532,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 25.2,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "DiagsCap.exe",
+        "pid": 3540,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 40.0,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "NetworkCap.exe",
+        "pid": 3560,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 17.4,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "TouchpointAnalyticsClientService.exe",
+        "pid": 3572,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 81.8,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "wslservice.exe",
+        "pid": 3904,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 29.1,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "audiodg.exe",
+        "pid": 4020,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 114.5,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -1013,18 +1269,437 @@
     },
     {
         "name": "OpenConsole.exe",
+<<<<<<< HEAD
         "pid": 7992,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 15.3,
+=======
+        "pid": 4280,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 15.2,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "msedgewebview2.exe",
         "pid": 8080,
+=======
+        "name": "NVDisplay.Container.exe",
+        "pid": 4340,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 66.8,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "Code.exe",
+        "pid": 4476,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 120.3,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "WmiPrvSE.exe",
+        "pid": 4540,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 32.2,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "wlanext.exe",
+        "pid": 4700,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 8.7,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "conhost.exe",
+        "pid": 5040,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 8.3,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "python.exe",
+        "pid": 5076,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 39.6,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "ctfmon.exe",
+        "pid": 5084,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 39.3,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "chrome.exe",
+        "pid": 5412,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 59.8,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "SnippingTool.exe",
+        "pid": 5424,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 239.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "spoolsv.exe",
+        "pid": 5588,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 21.7,
+        "connections": 2,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "HPCommRecovery.exe",
+        "pid": 5872,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 27.2,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "ETDService.exe",
+        "pid": 5880,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 8.3,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "TeraCopyService.exe",
+        "pid": 5888,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 7.9,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "agent_ovpnconnect.exe",
+        "pid": 5896,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 9.4,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "sqlwriter.exe",
+        "pid": 5904,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 10.8,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "ovpnhelper_service.exe",
+        "pid": 5912,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 8.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "jhi_service.exe",
+        "pid": 5920,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 8.6,
+        "connections": 1,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "SECOMN64.exe",
+        "pid": 5928,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 17.9,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "DSAUpdateService.exe",
+        "pid": 5936,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 43.2,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "OneApp.IGCC.WinService.exe",
+        "pid": 5944,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 63.0,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "IntelGraphicsSoftware.Service.exe",
+        "pid": 5960,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 42.3,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "DSAService.exe",
+        "pid": 5976,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 115.4,
+        "connections": 1,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "MsMpEng.exe",
+        "pid": 5980,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 143.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "MpDefenderCoreService.exe",
+        "pid": 5992,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 31.0,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "WMIRegistrationService.exe",
+        "pid": 6000,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 15.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "RtkAudUService64.exe",
+        "pid": 6016,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 19.9,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "IntelAudioService.exe",
+        "pid": 6040,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 41.7,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "ipf_uf.exe",
+        "pid": 6048,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 8.8,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "SurSvc.exe",
+        "pid": 6108,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 134.2,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "conhost.exe",
+        "pid": 6224,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 7.9,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "IntelGraphicsSoftware.exe",
+        "pid": 6244,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 20.7,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "mysqld.exe",
+        "pid": 6288,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 27.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "conhost.exe",
+        "pid": 6400,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 6.6,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "TextInputHost.exe",
+        "pid": 6784,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 101.9,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "ETDCtrl.exe",
+        "pid": 6804,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 19.0,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "tailscaled.exe",
+        "pid": 6892,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 28.6,
+        "connections": 1,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "dasHost.exe",
+        "pid": 7040,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 8.1,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "conhost.exe",
+        "pid": 7408,
+>>>>>>> 1b6ddfe (updated project)
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 9.5,
@@ -1034,11 +1709,107 @@
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "SECOCL64.exe",
         "pid": 8340,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 13.9,
+=======
+        "name": "mysqld.exe",
+        "pid": 7448,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 379.5,
+        "connections": 8,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "ipf_helper.exe",
+        "pid": 7528,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 11.7,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "SECOCL64.exe",
+        "pid": 7748,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 14.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "pet.exe",
+        "pid": 7872,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 10.1,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "sqlservr.exe",
+        "pid": 8048,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 499.7,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "chrome.exe",
+        "pid": 8152,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 278.9,
+        "connections": 2,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "chrome.exe",
+        "pid": 8208,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 9.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "esrv_svc.exe",
+        "pid": 8368,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 209.2,
+        "connections": 1,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "PresentMonService.exe",
+        "pid": 8468,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 115.6,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -1046,7 +1817,11 @@
     },
     {
         "name": "conhost.exe",
+<<<<<<< HEAD
         "pid": 8384,
+=======
+        "pid": 8488,
+>>>>>>> 1b6ddfe (updated project)
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 6.2,
@@ -1057,21 +1832,47 @@
     },
     {
         "name": "Code.exe",
+<<<<<<< HEAD
         "pid": 8400,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 51.3,
+=======
+        "pid": 8964,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 164.6,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "tailscaled.exe",
+        "pid": 9032,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 52.0,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 2,
         "score": 50,
         "anomaly": false,
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "msedgewebview2.exe",
         "pid": 8480,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 1.8,
+=======
+        "name": "RtkAudUService64.exe",
+        "pid": 9484,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 19.2,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -1079,29 +1880,610 @@
     },
     {
         "name": "Code.exe",
+<<<<<<< HEAD
         "pid": 8524,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 111.3,
+=======
+        "pid": 9512,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 50.7,
+        "connections": 1,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "taskhostw.exe",
+        "pid": 9600,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 21.3,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "ipf_helper.exe",
         "pid": 8584,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 11.6,
+=======
+        "name": "powershell.exe",
+        "pid": 9796,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 72.7,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "PresentMonService.exe",
         "pid": 8784,
+=======
+        "name": "smartscreen.exe",
+        "pid": 9848,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 31.6,
+        "connections": 1,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "chrome.exe",
+        "pid": 9920,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 279.9,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "warp-svc.exe",
+        "pid": 10068,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 89.5,
+        "connections": 1,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "chrome.exe",
+        "pid": 10120,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 62.0,
+        "connections": 14,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "Code.exe",
+        "pid": 10136,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 213.7,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "CrossDeviceResume.exe",
+        "pid": 10612,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 73.9,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "RuntimeBroker.exe",
+        "pid": 10740,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 25.3,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "CrossDeviceService.exe",
+        "pid": 11292,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 101.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "esrv.exe",
+        "pid": 11300,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 144.1,
+        "connections": 1,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "python.exe",
+        "pid": 11444,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 37.3,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "chrome.exe",
+        "pid": 11488,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 57.4,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "SearchHost.exe",
+        "pid": 11536,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 210.6,
+        "connections": 1,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "StartMenuExperienceHost.exe",
+        "pid": 11552,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 178.1,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "sqlceip.exe",
+        "pid": 11784,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 68.1,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "OmenCap.exe",
+        "pid": 11948,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 0.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "msedgewebview2.exe",
+        "pid": 12020,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 97.9,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "Code.exe",
+        "pid": 12032,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 341.8,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "NisSrv.exe",
+        "pid": 12088,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 14.3,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "msedgewebview2.exe",
+        "pid": 12152,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 4.1,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "Widgets.exe",
+        "pid": 12220,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 64.3,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "SysInfoCap.exe",
+        "pid": 12236,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 0.3,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "Code.exe",
+        "pid": 12312,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 172.3,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "UserOOBEBroker.exe",
+        "pid": 12352,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 11.4,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "WidgetService.exe",
+        "pid": 12360,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 28.6,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "MoNotificationUx.exe",
+        "pid": 12456,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 14.0,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "msedgewebview2.exe",
+        "pid": 12664,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 42.4,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "msedgewebview2.exe",
+        "pid": 12752,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 9.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "backgroundTaskHost.exe",
+        "pid": 12800,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 46.1,
+        "connections": 1,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "Code.exe",
+        "pid": 12868,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 152.4,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "OpenConsole.exe",
+        "pid": 13004,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 15.1,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "msedgewebview2.exe",
+        "pid": 13288,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 21.3,
+        "connections": 5,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "msedgewebview2.exe",
+        "pid": 13292,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 55.0,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "LockApp.exe",
+        "pid": 13432,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 112.1,
+        "connections": 3,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "RuntimeBroker.exe",
+        "pid": 13684,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 46.0,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "RuntimeBroker.exe",
+        "pid": 13760,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 13.8,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "conhost.exe",
+        "pid": 13792,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 7.2,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "SearchIndexer.exe",
+        "pid": 13892,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 49.2,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "WmiApSrv.exe",
+        "pid": 14392,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 12.4,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "msedgewebview2.exe",
+        "pid": 14568,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 0.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "msedgewebview2.exe",
+        "pid": 14580,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 9.8,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "PhoneExperienceHost.exe",
+        "pid": 14648,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 183.3,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "RuntimeBroker.exe",
+        "pid": 14664,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 45.4,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "chrome.exe",
+        "pid": 14692,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 23.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "chrome.exe",
+        "pid": 14876,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 781.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "python.exe",
+        "pid": 14932,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 38.3,
+        "connections": 2,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "DSATray.exe",
+        "pid": 15124,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 103.8,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "Code.exe",
+        "pid": 15256,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 133.3,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "chrome.exe",
+        "pid": 15844,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 32.5,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "conhost.exe",
+        "pid": 16120,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 7.2,
+        "connections": 0,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "Code.exe",
+        "pid": 16308,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 397.4,
+        "connections": 1,
+        "score": 50,
+        "anomaly": false,
+        "reason": "Unknown Publisher"
+    },
+    {
+        "name": "ShellExperienceHost.exe",
+        "pid": 16404,
+>>>>>>> 1b6ddfe (updated project)
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 112.6,
@@ -1112,16 +2494,24 @@
     },
     {
         "name": "conhost.exe",
+<<<<<<< HEAD
         "pid": 8796,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 5.7,
+=======
+        "pid": 16484,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 10.3,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "msedgewebview2.exe",
         "pid": 9244,
         "publisher": "Unknown",
@@ -1171,6 +2561,13 @@
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 2.3,
+=======
+        "name": "SearchProtocolHost.exe",
+        "pid": 16612,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 20.0,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -1178,6 +2575,7 @@
     },
     {
         "name": "Code.exe",
+<<<<<<< HEAD
         "pid": 9608,
         "publisher": "Unknown",
         "cpu": 0.0,
@@ -1303,6 +2701,12 @@
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 122.5,
+=======
+        "pid": 16660,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 33.1,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -1310,6 +2714,7 @@
     },
     {
         "name": "conhost.exe",
+<<<<<<< HEAD
         "pid": 10916,
         "publisher": "Unknown",
         "cpu": 0.0,
@@ -1938,6 +3343,9 @@
     {
         "name": "conhost.exe",
         "pid": 19584,
+=======
+        "pid": 16712,
+>>>>>>> 1b6ddfe (updated project)
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 10.4,
@@ -1947,44 +3355,78 @@
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "conhost.exe",
         "pid": 20428,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 10.5,
+=======
+        "name": "chrome.exe",
+        "pid": 17040,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 81.9,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "python.exe",
         "pid": 20544,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 38.5,
         "connections": 2,
+=======
+        "name": "Code.exe",
+        "pid": 17156,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 121.9,
+        "connections": 0,
+>>>>>>> 1b6ddfe (updated project)
         "score": 50,
         "anomaly": false,
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "python.exe",
         "pid": 20980,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 38.2,
         "connections": 1,
+=======
+        "name": "WmiPrvSE.exe",
+        "pid": 17324,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 22.7,
+        "connections": 0,
+>>>>>>> 1b6ddfe (updated project)
         "score": 50,
         "anomaly": false,
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "python.exe",
         "pid": 20988,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 40.2,
+=======
+        "name": "ApplicationFrameHost.exe",
+        "pid": 17376,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 75.0,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
@@ -1992,43 +3434,74 @@
     },
     {
         "name": "chrome.exe",
+<<<<<<< HEAD
         "pid": 21128,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 75.9,
+=======
+        "pid": 17568,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 66.8,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "SearchProtocolHost.exe",
         "pid": 21268,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 20.3,
+=======
+        "name": "pet.exe",
+        "pid": 18032,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 9.8,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 50,
         "anomaly": false,
         "reason": "Unknown Publisher"
     },
     {
+<<<<<<< HEAD
         "name": "OpenConsole.exe",
         "pid": 21348,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 15.1,
         "connections": 0,
+=======
+        "name": "python.exe",
+        "pid": 18296,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 38.3,
+        "connections": 1,
+>>>>>>> 1b6ddfe (updated project)
         "score": 50,
         "anomaly": false,
         "reason": "Unknown Publisher"
     },
     {
         "name": "csrss.exe",
+<<<<<<< HEAD
         "pid": 1080,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 6.6,
+=======
+        "pid": 1076,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 6.7,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2036,10 +3509,17 @@
     },
     {
         "name": "wininit.exe",
+<<<<<<< HEAD
         "pid": 1188,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 8.5,
+=======
+        "pid": 1184,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 8.6,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 2,
         "score": 95,
         "anomaly": false,
@@ -2047,10 +3527,17 @@
     },
     {
         "name": "csrss.exe",
+<<<<<<< HEAD
         "pid": 1196,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 7.8,
+=======
+        "pid": 1192,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 7.7,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2058,10 +3545,17 @@
     },
     {
         "name": "services.exe",
+<<<<<<< HEAD
         "pid": 1264,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 12.8,
+=======
+        "pid": 1260,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 13.0,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 2,
         "score": 95,
         "anomaly": false,
@@ -2069,10 +3563,17 @@
     },
     {
         "name": "lsass.exe",
+<<<<<<< HEAD
         "pid": 1292,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 34.6,
+=======
+        "pid": 1288,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 35.4,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 2,
         "score": 95,
         "anomaly": false,
@@ -2080,10 +3581,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 1504,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 45.8,
+=======
+        "pid": 1312,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 13.6,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2091,11 +3599,19 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 1668,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 12.5,
         "connections": 8,
+=======
+        "pid": 1492,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 43.3,
+        "connections": 0,
+>>>>>>> 1b6ddfe (updated project)
         "score": 95,
         "anomaly": false,
         "reason": "Windows System Process"
@@ -2105,7 +3621,11 @@
         "pid": 1676,
         "publisher": "Unknown",
         "cpu": 0.0,
+<<<<<<< HEAD
         "memory": 20.0,
+=======
+        "memory": 19.0,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 2,
         "score": 95,
         "anomaly": false,
@@ -2116,7 +3636,33 @@
         "pid": 1724,
         "publisher": "Unknown",
         "cpu": 0.0,
+<<<<<<< HEAD
         "memory": 10.9,
+=======
+        "memory": 14.0,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 1832,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 24.1,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 1836,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 10.1,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2127,7 +3673,11 @@
         "pid": 1936,
         "publisher": "Unknown",
         "cpu": 0.0,
+<<<<<<< HEAD
         "memory": 10.8,
+=======
+        "memory": 9.0,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2135,10 +3685,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 1944,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 6.9,
+=======
+        "pid": 1968,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 10.2,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2146,10 +3703,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 1984,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 13.0,
+=======
+        "pid": 1988,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 8.3,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2157,10 +3721,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 2064,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 14.1,
+=======
+        "pid": 2020,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 7.1,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2168,10 +3739,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 2072,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 11.0,
+=======
+        "pid": 2100,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 7.1,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2179,6 +3757,7 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 2080,
         "publisher": "Unknown",
         "cpu": 0.0,
@@ -2213,6 +3792,9 @@
     {
         "name": "svchost.exe",
         "pid": 2248,
+=======
+        "pid": 2112,
+>>>>>>> 1b6ddfe (updated project)
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 11.7,
@@ -2223,10 +3805,28 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 2308,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 7.4,
+=======
+        "pid": 2204,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 12.5,
+        "connections": 10,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 2248,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 11.0,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2234,10 +3834,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 2316,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 13.5,
+=======
+        "pid": 2260,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 14.2,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2245,10 +3852,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 2348,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 35.2,
+=======
+        "pid": 2268,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 15.4,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2256,10 +3870,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 2404,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 8.1,
+=======
+        "pid": 2364,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 11.6,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2267,6 +3888,7 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 2424,
         "publisher": "Unknown",
         "cpu": 0.0,
@@ -2378,6 +4000,9 @@
     {
         "name": "svchost.exe",
         "pid": 3464,
+=======
+        "pid": 2432,
+>>>>>>> 1b6ddfe (updated project)
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 7.6,
@@ -2388,6 +4013,7 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 3568,
         "publisher": "Unknown",
         "cpu": 0.0,
@@ -2513,6 +4139,12 @@
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 9.0,
+=======
+        "pid": 2492,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 10.6,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2520,6 +4152,7 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 4912,
         "publisher": "Unknown",
         "cpu": 0.0,
@@ -2598,6 +4231,9 @@
     {
         "name": "svchost.exe",
         "pid": 5552,
+=======
+        "pid": 2520,
+>>>>>>> 1b6ddfe (updated project)
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 21.5,
@@ -2608,10 +4244,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 5668,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 17.4,
+=======
+        "pid": 2716,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 14.7,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2619,10 +4262,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 5732,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 36.4,
+=======
+        "pid": 2724,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 13.7,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2630,10 +4280,28 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 5780,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 11.3,
+=======
+        "pid": 2876,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 17.2,
+        "connections": 2,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 3000,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 14.1,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2641,17 +4309,26 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 5932,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 9.2,
         "connections": 0,
+=======
+        "pid": 3304,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 22.8,
+        "connections": 2,
+>>>>>>> 1b6ddfe (updated project)
         "score": 95,
         "anomaly": false,
         "reason": "Windows System Process"
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 6024,
         "publisher": "Unknown",
         "cpu": 0.0,
@@ -2730,6 +4407,9 @@
     {
         "name": "svchost.exe",
         "pid": 6644,
+=======
+        "pid": 3352,
+>>>>>>> 1b6ddfe (updated project)
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 7.7,
@@ -2740,21 +4420,36 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 6744,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 26.5,
         "connections": 1,
+=======
+        "pid": 3368,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 10.7,
+        "connections": 0,
+>>>>>>> 1b6ddfe (updated project)
         "score": 95,
         "anomaly": false,
         "reason": "Windows System Process"
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 6752,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 8.7,
+=======
+        "pid": 3472,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 11.8,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2762,10 +4457,28 @@
     },
     {
         "name": "explorer.exe",
+<<<<<<< HEAD
         "pid": 6944,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 480.4,
+=======
+        "pid": 3500,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 536.8,
+        "connections": 7,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 3524,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 12.1,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2773,10 +4486,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 7056,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 25.6,
+=======
+        "pid": 3644,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 20.8,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2784,10 +4504,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 7220,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 13.8,
+=======
+        "pid": 3820,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 19.8,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2795,10 +4522,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 7372,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 26.7,
+=======
+        "pid": 3984,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 29.2,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2806,10 +4540,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 7912,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 13.4,
+=======
+        "pid": 4240,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 36.6,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2817,10 +4558,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 9232,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 16.7,
+=======
+        "pid": 4680,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 17.3,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2828,10 +4576,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 9404,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 9.9,
+=======
+        "pid": 4784,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 15.6,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2839,6 +4594,7 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 9940,
         "publisher": "Unknown",
         "cpu": 0.0,
@@ -2854,6 +4610,12 @@
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 24.6,
+=======
+        "pid": 4896,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 41.7,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2861,6 +4623,7 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 10040,
         "publisher": "Unknown",
         "cpu": 0.0,
@@ -2876,6 +4639,12 @@
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 15.4,
+=======
+        "pid": 4932,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 12.7,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2883,10 +4652,17 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 10572,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 11.3,
+=======
+        "pid": 5024,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 11.2,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
@@ -2894,6 +4670,7 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 10856,
         "publisher": "Unknown",
         "cpu": 0.0,
@@ -3071,6 +4848,9 @@
     {
         "name": "svchost.exe",
         "pid": 19924,
+=======
+        "pid": 5376,
+>>>>>>> 1b6ddfe (updated project)
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 9.3,
@@ -3081,10 +4861,501 @@
     },
     {
         "name": "svchost.exe",
+<<<<<<< HEAD
         "pid": 20828,
         "publisher": "Unknown",
         "cpu": 0.0,
         "memory": 15.2,
+=======
+        "pid": 5392,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 9.5,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 5444,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 25.5,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 5476,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 19.4,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 5660,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 10.8,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 5832,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 9.2,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 5840,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 68.7,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 5848,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 33.5,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 5856,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 11.4,
+        "connections": 4,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 5864,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 7.6,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 5952,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 26.3,
+        "connections": 1,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 5964,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 11.7,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 6120,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 15.7,
+        "connections": 1,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 6368,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 9.7,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 6456,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 12.2,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 6848,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 9.4,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 6932,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 8.9,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 7540,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 8.9,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 7740,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 10.6,
+        "connections": 16,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 8600,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 11.0,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 9204,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 9.6,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 9220,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 18.5,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 9232,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 13.0,
+        "connections": 4,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 9332,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 40.7,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 9644,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 13.7,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 9708,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 26.9,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 9864,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 29.6,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 9972,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 10.2,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 10100,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 24.8,
+        "connections": 2,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 10496,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 16.3,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 10648,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 11.6,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 10904,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 35.5,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 11092,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 9.8,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 11124,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 21.2,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 11516,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 8.8,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 11600,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 27.0,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 12064,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 23.8,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 13000,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 16.1,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 13108,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 13.8,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 13552,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 53.3,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 13956,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 21.0,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "cmd.exe",
+        "pid": 14044,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 21.4,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 14636,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 26.5,
+        "connections": 2,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 14812,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 35.6,
+        "connections": 1,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "cmd.exe",
+        "pid": 17428,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 21.5,
+        "connections": 0,
+        "score": 95,
+        "anomaly": false,
+        "reason": "Windows System Process"
+    },
+    {
+        "name": "svchost.exe",
+        "pid": 18324,
+        "publisher": "Unknown",
+        "cpu": 0.0,
+        "memory": 17.7,
+>>>>>>> 1b6ddfe (updated project)
         "connections": 0,
         "score": 95,
         "anomaly": false,
