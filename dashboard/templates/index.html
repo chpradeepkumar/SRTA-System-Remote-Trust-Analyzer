@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SRTA Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- OVERLAY -->
+    <div id="overlay" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+z-index:9999;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+font-size:30px;
+">
+        <div id="overlayText"></div>
+        <div class="spinner" style="margin-top:20px;"></div>
+    </div>
+
+    <div class="container">
+
+        <header class="top">
+            <h1>⚡ SRTA Dashboard</h1>
+
+            <button onclick="runScan()">Scan System</button>
+            <button onclick="checkSystem()">Start Exam</button>
+        </header>
+
+        <div id="loader" style="display:none;text-align:center;">
+            <div class="spinner"></div>
+        </div>
+
+        <section class="stats">
+            <div class="card">
+                <p>Trust</p>
+                <h2 id="trustScore">--</h2>
+            </div>
+            <div class="card">
+                <p>Threat</p>
+                <h2 id="threatLevel">--</h2>
+            </div>
+            <div class="card">
+                <p>Processes</p>
+                <h2 id="procCount">--</h2>
+            </div>
+            <div class="card">
+                <p>Time</p>
+                <h2 id="scanTime">--</h2>
+            </div>
+        </section>
+
+        <section class="main">
+
+            <!-- PROCESS TABLE -->
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>CPU</th>
+                            <th>Trust</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table"></tbody>
+                </table>
+            </div>
+
+            <!-- 🔥 IP PANEL -->
+            <div class="ip-box">
+                <h3>🌐 Active Connections</h3>
+                <div id="connections"></div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <audio id="alertSound" src="https://www.soundjay.com/buttons/beep-01a.mp3"></audio>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #020617, #0f172a);
+            color: white;
+            font-family: Segoe UI;
+        }
+
+        .main {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .table-box,
+        .ip-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        .ip-box {
+            height: 300px;
+            overflow: auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #0ea5e9;
+            border-top: 5px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+    <script>
+
+        // 🔍 SCAN
+        function runScan() {
+
+            document.getElementById("loader").style.display = "block";
+
+            fetch("/scan")
+                .then(r => r.json())
+                .then(data => {
+
+                    document.getElementById("loader").style.display = "none";
+
+                    let total = 0;
+                    let rows = "";
+                    let connections = "";
+
+                    data.forEach(p => {
+
+                        total += p.score;
+
+                        // 🎨 COLOR
+                        let color = "white";
+                        if (p.score < 30) color = "red";
+                        else if (p.score < 60) color = "orange";
+                        else if (p.score < 85) color = "yellow";
+                        else color = "lightgreen";
+
+                        rows += `
+<tr style="color:${color}">
+<td>${p.name}</td>
+<td>${p.cpu}</td>
+<td>${p.score}</td>
+</tr>`;
+
+                        // 🌐 CONNECTIONS SHOW
+                        if (p.connections && p.connections.length) {
+                            p.connections.forEach(c => {
+                                connections += `<div>${c}</div>`;
+                            });
+                        }
+
+                    });
+
+                    document.getElementById("table").innerHTML = rows;
+                    document.getElementById("connections").innerHTML = connections || "No active connections";
+
+                    let avg = Math.round(total / data.length);
+
+                    document.getElementById("trustScore").innerText = avg;
+                    document.getElementById("procCount").innerText = data.length;
+                    document.getElementById("scanTime").innerText = new Date().toLocaleTimeString();
+
+                    document.getElementById("threatLevel").innerText =
+                        avg < 50 ? "HIGH" : avg < 80 ? "MEDIUM" : "SAFE";
+
+                });
+        }
+
+
+        // 🔥 EXAM
+        async function checkSystem() {
+
+            const overlay = document.getElementById("overlay");
+            const text = document.getElementById("overlayText");
+
+            overlay.style.display = "flex";
+
+            const res = await fetch("/check-system", { method: "POST" });
+            const data = await res.json();
+
+            if (data.status === "SAFE") {
+                text.innerText = "✅ Access Granted";
+                setTimeout(() => { window.location.href = "/exam"; }, 1000);
+            } else {
+                text.innerText = "❌ Access Denied";
+                document.getElementById("alertSound").play();
+                setTimeout(() => { overlay.style.display = "none"; }, 1500);
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
