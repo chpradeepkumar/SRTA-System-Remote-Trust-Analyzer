@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SRTA Login</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+
+    <main class="auth-shell">
+      <section class="auth-card">
+        <p class="eyebrow">System Remote Trust Analyzer</p>
+        <h1 class="auth-title">Secure Dashboard Login</h1>
+        <p class="auth-subtitle">
+          Sign in to access the SRTA monitoring workspace and protected exam
+          controls.
+        </p>
+
+        {% if error %}
+        <div class="auth-error">{{ error }}</div>
+        {% endif %}
+
+        <form method="post" class="auth-form">
+          <label class="auth-label" for="username">Username</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            class="auth-input"
+            placeholder="Enter username"
+            required
+            autocomplete="username"
+          />
+
+          <label class="auth-label" for="password">Password</label>
+          <div style="position: relative">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              class="auth-input"
+              placeholder="Enter password"
+              required
+              autocomplete="current-password"
+            />
+            <button
+              type="button"
+              id="togglePwd"
+              style="
+                position: absolute;
+                right: 8px;
+                top: 8px;
+                background: transparent;
+                border: none;
+                color: var(--text-muted);
+                cursor: pointer;
+              "
+            >
+              Show
+            </button>
+          </div>
+
+          <button type="submit" class="auth-submit">Login</button>
+        </form>
+      </section>
+    </main>
+    <script>
+      const pwd = document.getElementById("password");
+      const toggle = document.getElementById("togglePwd");
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          if (pwd.type === "password") {
+            pwd.type = "text";
+            toggle.textContent = "Hide";
+          } else {
+            pwd.type = "password";
+            toggle.textContent = "Show";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

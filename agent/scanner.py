@@ -1,6 +1,15 @@
 import psutil
+import time
 
-REMOTE_TOOLS = ["anydesk","teamviewer","rustdesk","mstsc"]
+REMOTE_TOOLS = [
+    "anydesk.exe",
+    "teamviewer.exe",
+    "ultraviewer.exe",
+    "remoting_host.exe",
+    "remoting_me2me_host.exe",
+    "chromoting_host.exe",
+    "mstsc.exe",
+]
 
 SYSTEM_PROCESSES = [
     "system","system idle process","svchost.exe","lsass.exe",
@@ -9,31 +18,45 @@ SYSTEM_PROCESSES = [
 
 def get_score(name):
 
-    lname = name.lower()
+    # More robust scoring: base high for normal/system, low for remote tools
+    lname = (name or "").lower()
 
-    if any(tool in lname for tool in REMOTE_TOOLS):
-        return 15, "Remote Tool"
+    if lname in REMOTE_TOOLS:
+        return 20, "Remote Tool Detected"
 
     if lname in SYSTEM_PROCESSES:
         return 95, "System"
 
-    return 60, "Normal"
+    # Default to a high trust for regular processes; CPU and connections may reduce it
+    return 90, "Normal"
 
 
 def run_scan():
     results = []
 
-    for proc in psutil.process_iter(['pid','name']):
+    # Warm up CPU counters so sorting reflects actual values more reliably.
+    for proc in psutil.process_iter(['pid', 'name']):
         try:
-            name = proc.info['name']
+            proc.cpu_percent(None)
+        except:
+            continue
+
+    time.sleep(0.12)
+
+
+    for proc in psutil.process_iter(['pid', 'name']):
+        try:
+            name = proc.info.get('name')
             if not name:
                 continue
 
-            cpu = proc.cpu_percent(interval=0)
+            # CPU reading
+            try:
+                cpu = proc.cpu_percent(None)
+            except Exception:
+                cpu = 0.0
 
-            score, reason = get_score(name)
-
-            # 🔥 GET CONNECTIONS
+            # connections (best-effort)
             conns = []
             try:
                 connections = proc.connections(kind='inet')
@@ -41,19 +64,44 @@ def run_scan():
                     if c.raddr:
                         ip = f"{c.raddr.ip}:{c.raddr.port}"
                         conns.append(ip)
-            except:
-                pass
+            except Exception:
+                conns = []
+
+            base_score, reason = get_score(name)
+
+            # Adjust score for CPU and connections
+            score = int(base_score)
+            extra_reasons = []
+
+            if cpu is None:
+                cpu = 0.0
+
+            if cpu > 50:
+                score = max(20, score - 30)
+                extra_reasons.append('High CPU')
+            elif cpu > 20:
+                score = max(30, score - 10)
+                extra_reasons.append('Elevated CPU')
+
+            if conns:
+                # penalty proportional to unique remote endpoints
+                score = max(20, score - min(30, len(set(conns)) * 3))
+                extra_reasons.append('Network Activity')
+
+            if extra_reasons:
+                reason = reason + ' • ' + ', '.join(extra_reasons)
 
             results.append({
-                "name": name,
-                "pid": proc.info['pid'],
-                "cpu": cpu,
-                "score": score,
-                "reason": reason,
-                "connections": conns  # 🔥 IMPORTANT
+                'name': name,
+                'pid': proc.info.get('pid'),
+                'cpu': float(cpu),
+                'score': score,
+                'reason': reason,
+                'is_remote': name.lower() in REMOTE_TOOLS,
+                'connections': conns,
             })
 
-        except:
+        except Exception:
             continue
 
     results.sort(key=lambda x: x['score'])

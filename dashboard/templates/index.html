@@ -1,224 +1,724 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SRTA Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-
-<body>
-
-    <!-- OVERLAY -->
-    <div id="overlay" style="
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-z-index:9999;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-color:white;
-font-size:30px;
-">
-        <div id="overlayText"></div>
-        <div class="spinner" style="margin-top:20px;"></div>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div id="overlay" class="overlay" aria-live="polite">
+      <div class="overlay-card">
+        <div id="overlayText" class="overlay-text"></div>
+        <div class="spinner overlay-spinner"></div>
+      </div>
     </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <div class="bg" aria-hidden="true"></div>
 
     <div class="container">
-
-        <header class="top">
-            <h1>⚡ SRTA Dashboard</h1>
-
-            <button onclick="runScan()">Scan System</button>
-            <button onclick="checkSystem()">Start Exam</button>
-        </header>
-
-        <div id="loader" style="display:none;text-align:center;">
-            <div class="spinner"></div>
+      <header class="top header">
+        <div class="hero-copy header-left">
+          <p class="eyebrow">System Remote Trust Analyzer</p>
+          <h1>SRTA Dashboard</h1>
+          <p class="hero-subtitle">
+            Monitor trust signals, inspect live processes, and validate system
+            readiness before the exam begins.
+          </p>
         </div>
 
-        <section class="stats">
-            <div class="card">
-                <p>Trust</p>
-                <h2 id="trustScore">--</h2>
-            </div>
-            <div class="card">
-                <p>Threat</p>
-                <h2 id="threatLevel">--</h2>
-            </div>
-            <div class="card">
-                <p>Processes</p>
-                <h2 id="procCount">--</h2>
-            </div>
-            <div class="card">
-                <p>Time</p>
-                <h2 id="scanTime">--</h2>
-            </div>
-        </section>
-
-        <section class="main">
-
-            <!-- PROCESS TABLE -->
-            <div class="table-box">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>CPU</th>
-                            <th>Trust</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table"></tbody>
-                </table>
+        <div class="header-right">
+          <div class="header-controls">
+            <div class="scan-column">
+              <button type="button" class="scan-btn" onclick="runScan()">
+                Scan System
+              </button>
+              <div id="scanStatus" class="scan-status">Not Scanned</div>
             </div>
 
-            <!-- 🔥 IP PANEL -->
-            <div class="ip-box">
-                <h3>🌐 Active Connections</h3>
-                <div id="connections"></div>
+            <div class="top-actions">
+              <div class="button-column">
+                <div
+                  class="theme-actions mode-toggle"
+                  role="group"
+                  aria-label="Theme toggle"
+                >
+                  <button type="button" class="mode-btn" id="darkModeBtn">
+                    Dark
+                  </button>
+                  <button type="button" class="mode-btn" id="lightModeBtn">
+                    Light
+                  </button>
+                </div>
+
+                <button
+                  type="button"
+                  id="openPortalBtn"
+                  class="portal-link-btn"
+                  onclick="openUniversityPortal()"
+                  disabled
+                >
+                  Open University Exam Portal
+                </button>
+
+                <button
+                  type="button"
+                  id="startExamBtn"
+                  onclick="checkSystem()"
+                  disabled
+                >
+                  Start Exam
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div id="loader" class="loader-panel" aria-hidden="true">
+        <div class="spinner"></div>
+        <p>Scanning running processes...</p>
+      </div>
+
+      <section class="stats">
+        <div class="card">
+          <p>Trust</p>
+          <h2 id="trustScore">--</h2>
+        </div>
+        <div class="card">
+          <p>
+            Threat
+            <span
+              class="info-icon"
+              title="Only remote access tools are restricted during exam"
+              >ⓘ</span
+            >
+          </p>
+          <h2 id="threatLevel">--</h2>
+        </div>
+        <div class="card">
+          <p>Processes</p>
+          <h2 id="procCount">--</h2>
+        </div>
+        <div class="card">
+          <p>Time</p>
+          <h2 id="scanTime">--</h2>
+        </div>
+      </section>
+
+      <!-- System Ready full-width row -->
+      <!-- <section class="system-ready">
+        <label class="ready-row">
+          <input id="systemReadyCheckbox" type="checkbox" />
+          <span></span>
+        </label>
+      </section> -->
+
+      <section class="main">
+        <div
+          id="alertBanner"
+          class="alert-banner neutral"
+          role="status"
+          aria-live="polite"
+        >
+          ⚠ System not scanned
+        </div>
+        <div class="table-box fade">
+          <div class="section-head process-header">
+            <div>
+              <h3>Process Activity</h3>
+              <p>Search and sort the scanned process list in real time.</p>
             </div>
 
-        </section>
+            <div class="process-tools">
+              <select id="cpuSort" class="sort-select" aria-label="Sort by CPU">
+                <option value="default">CPU Sort</option>
+                <option value="asc">CPU: Low to High</option>
+                <option value="desc">CPU: High to Low</option>
+              </select>
 
+              <select
+                id="trustSort"
+                class="sort-select"
+                aria-label="Sort by Trust"
+              >
+                <option value="default">Trust Sort</option>
+                <option value="desc">Trust: High to Low</option>
+                <option value="asc">Trust: Low to High</option>
+              </select>
+
+              <label
+                style="display: inline-flex; align-items: center; gap: 8px"
+              >
+                <input id="filterLowTrust" type="checkbox" />
+                <span style="font-size: 0.9rem; color: var(--text-muted)"
+                  >Show only low trust</span
+                >
+              </label>
+
+              <label class="search-box" for="processSearch">
+                <span class="search-icon" aria-hidden="true">&#128269;</span>
+                <input
+                  id="processSearch"
+                  type="search"
+                  placeholder="Search process name"
+                  autocomplete="off"
+                />
+              </label>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>PID</th>
+                  <th>CPU</th>
+                  <th>Trust</th>
+                  <th>Reason</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="table">
+                <tr>
+                  <td colspan="6" class="empty-state">
+                    Run a system scan to load active processes.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="ip-box fade">
+          <div class="section-head">
+            <div>
+              <h3>Active Connections</h3>
+              <p>Outbound endpoints detected for scanned processes.</p>
+            </div>
+          </div>
+          <div id="connections" class="connections">No active connections</div>
+        </div>
+      </section>
     </div>
 
-    <audio id="alertSound" src="https://www.soundjay.com/buttons/beep-01a.mp3"></audio>
+    <a href="/logout" class="logout-link logout-btn">Logout</a>
 
-    <style>
-        body {
-            background: linear-gradient(135deg, #020617, #0f172a);
-            color: white;
-            font-family: Segoe UI;
-        }
-
-        .main {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
-        }
-
-        .table-box,
-        .ip-box {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 15px;
-        }
-
-        .ip-box {
-            height: 300px;
-            overflow: auto;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 15px;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #0ea5e9;
-            border-top: 5px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+    <audio
+      id="alertSound"
+      src="https://www.soundjay.com/buttons/beep-01a.mp3"
+    ></audio>
 
     <script>
+      let latestScan = [];
+      let hasScanned = false;
+      let scanCompleted = false;
+      let remoteDetected = null; // unknown until a scan runs
+      let trustSortOrder = "default";
+      let filterLowTrust = false;
+      let searchTerm = "";
+      let sortOrder = "default";
+      let killRequestInFlight = false;
+      let currentStatus = {
+        safe: false,
+        remote: false,
+        trust: 0,
+        threat: null,
+        suspicious_count: 0,
+        connections_count: 0,
+      };
 
-        // 🔍 SCAN
-        function runScan() {
+      const body = document.body;
+      const loader = document.getElementById("loader");
+      const table = document.getElementById("table");
+      const alertBanner = document.getElementById("alertBanner");
+      const scanStatusEl = document.getElementById("scanStatus");
+      const toast = document.getElementById("toast");
+      const darkModeBtn = document.getElementById("darkModeBtn");
+      const lightModeBtn = document.getElementById("lightModeBtn");
+      const processSearch = document.getElementById("processSearch");
+      const cpuSort = document.getElementById("cpuSort");
+      const trustSort = document.getElementById("trustSort");
+      const filterLowTrustEl = document.getElementById("filterLowTrust");
+      const startExamBtn = document.getElementById("startExamBtn");
+      const openPortalBtn = document.getElementById("openPortalBtn");
 
-            document.getElementById("loader").style.display = "block";
+      function setTheme(mode) {
+        const isLight = mode === "light";
+        body.classList.toggle("light-mode", isLight);
+        darkModeBtn.classList.toggle("active", !isLight);
+        lightModeBtn.classList.toggle("active", isLight);
+        localStorage.setItem("srta-theme", mode);
+      }
 
-            fetch("/scan")
-                .then(r => r.json())
-                .then(data => {
+      function showToast(message, isError = false) {
+        toast.textContent = message;
+        toast.classList.toggle("error", isError);
+        toast.classList.add("show");
 
-                    document.getElementById("loader").style.display = "none";
+        window.clearTimeout(showToast.timeoutId);
+        showToast.timeoutId = window.setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2600);
+      }
 
-                    let total = 0;
-                    let rows = "";
-                    let connections = "";
+      function updateExamButton() {
+        // Only remote access detection blocks the exam and a scan must have completed
+        const blocked = Boolean(
+          remoteDetected ||
+          currentStatus.remote_access_detected ||
+          currentStatus.remote,
+        );
+        const canStartExam = scanCompleted && !blocked;
 
-                    data.forEach(p => {
+        startExamBtn.disabled = !canStartExam;
+        openPortalBtn.disabled = !canStartExam;
+      }
 
-                        total += p.score;
+      function getTrustClass(score) {
+        if (score < 50) return "trust-low";
+        if (score <= 80) return "trust-medium";
+        return "trust-high";
+      }
 
-                        // 🎨 COLOR
-                        let color = "white";
-                        if (p.score < 30) color = "red";
-                        else if (p.score < 60) color = "orange";
-                        else if (p.score < 85) color = "yellow";
-                        else color = "lightgreen";
+      async function fetchSystemStatus() {
+        console.log("Calling /system-status");
+        const response = await fetch("/system-status");
+        const data = await response.json();
+        console.log("/system-status response", data);
 
-                        rows += `
-<tr style="color:${color}">
-<td>${p.name}</td>
-<td>${p.cpu}</td>
-<td>${p.score}</td>
-</tr>`;
-
-                        // 🌐 CONNECTIONS SHOW
-                        if (p.connections && p.connections.length) {
-                            p.connections.forEach(c => {
-                                connections += `<div>${c}</div>`;
-                            });
-                        }
-
-                    });
-
-                    document.getElementById("table").innerHTML = rows;
-                    document.getElementById("connections").innerHTML = connections || "No active connections";
-
-                    let avg = Math.round(total / data.length);
-
-                    document.getElementById("trustScore").innerText = avg;
-                    document.getElementById("procCount").innerText = data.length;
-                    document.getElementById("scanTime").innerText = new Date().toLocaleTimeString();
-
-                    document.getElementById("threatLevel").innerText =
-                        avg < 50 ? "HIGH" : avg < 80 ? "MEDIUM" : "SAFE";
-
-                });
+        if (!response.ok) {
+          throw new Error(data.message || "Unable to fetch system status.");
         }
 
+        currentStatus = {
+          safe: Boolean(data.safe),
+          remote: Boolean(data.remote),
+          remote_access_detected: Boolean(
+            data.remote_access_detected || data.remote,
+          ),
+          trust: Number(data.trust || 0),
+          threat: data.threat || data.threat_level || null,
+          threat_level: data.threat_level || data.threat || null,
+          suspicious_count: Number(data.suspicious_count || 0),
+          connections_count: Number(data.connections_count || 0),
+        };
 
-        // 🔥 EXAM
-        async function checkSystem() {
+        // set hasScanned / scanCompleted / remoteDetected flags from server
+        hasScanned = Boolean(data.scanned);
+        scanCompleted = Boolean(data.scan_completed || data.scanned || false);
+        remoteDetected =
+          data.remote_access_detected === undefined
+            ? null
+            : Boolean(data.remote_access_detected || data.remote || false);
 
-            const overlay = document.getElementById("overlay");
-            const text = document.getElementById("overlayText");
+        updateScanStatusUI();
 
-            overlay.style.display = "flex";
+        updateExamButton();
+        return currentStatus;
+      }
 
-            const res = await fetch("/check-system", { method: "POST" });
-            const data = await res.json();
+      function updateScanStatusUI() {
+        if (!scanStatusEl) return;
+        scanStatusEl.classList.remove("scanning", "complete");
+        if (!scanCompleted) {
+          scanStatusEl.textContent = "Not Scanned";
+        } else if (remoteDetected) {
+          scanStatusEl.textContent = "Remote Tool Detected";
+          scanStatusEl.classList.add("complete");
+        } else {
+          scanStatusEl.textContent = "Scan Complete ✓";
+          scanStatusEl.classList.add("complete");
+        }
+      }
 
-            if (data.status === "SAFE") {
-                text.innerText = "✅ Access Granted";
-                setTimeout(() => { window.location.href = "/exam"; }, 1000);
-            } else {
-                text.innerText = "❌ Access Denied";
-                document.getElementById("alertSound").play();
-                setTimeout(() => { overlay.style.display = "none"; }, 1500);
-            }
+      async function fetchProcesses() {
+        try {
+          const response = await fetch("/processes");
+          if (!response.ok) return [];
+          const data = await response.json();
+          latestScan = Array.isArray(data) ? data : [];
+          hasScanned = latestScan.length > 0;
+          renderDashboard();
+          return latestScan;
+        } catch (err) {
+          console.warn("Failed to fetch processes", err);
+          return [];
+        }
+      }
+
+      function sanitizeAttribute(value) {
+        return String(value ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/"/g, "&quot;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      function renderConnections(data) {
+        const connections = [];
+
+        data.forEach((process) => {
+          if (process.connections && process.connections.length) {
+            process.connections.forEach((entry) => {
+              connections.push(
+                `<div class="connection-item"><span>${process.name}</span><strong>${entry}</strong></div>`,
+              );
+            });
+          }
+        });
+
+        document.getElementById("connections").innerHTML =
+          connections.join("") ||
+          '<div class="empty-state">No active connections</div>';
+      }
+
+      function getVisibleProcesses() {
+        const term = searchTerm.trim().toLowerCase();
+        let filtered = [...latestScan];
+
+        if (term) {
+          filtered = filtered.filter((process) =>
+            String(process.name || "")
+              .toLowerCase()
+              .includes(term),
+          );
         }
 
+        // optional: filter only low-trust processes
+        if (filterLowTrust) {
+          filtered = filtered.filter((p) => Number(p.score || 0) < 50);
+        }
+
+        // Trust sorting takes precedence if requested
+        if (trustSortOrder === "desc") {
+          filtered.sort((a, b) => Number(b.score || 0) - Number(a.score || 0));
+        } else if (trustSortOrder === "asc") {
+          filtered.sort((a, b) => Number(a.score || 0) - Number(b.score || 0));
+        } else if (sortOrder === "asc") {
+          filtered.sort(
+            (a, b) => parseFloat(a.cpu || 0) - parseFloat(b.cpu || 0),
+          );
+        } else if (sortOrder === "desc") {
+          filtered.sort(
+            (a, b) => parseFloat(b.cpu || 0) - parseFloat(a.cpu || 0),
+          );
+        }
+
+        return filtered;
+      }
+
+      function renderTable(data) {
+        if (!data.length) {
+          const message = latestScan.length
+            ? "No processes match the current search."
+            : "No active processes found.";
+
+          table.innerHTML = `<tr><td colspan="6" class="empty-state">${message}</td></tr>`;
+          return;
+        }
+
+        table.innerHTML = data
+          .map((process) => {
+            const allowKill = hasScanned && Number(process.score) <= 60;
+            const trustClass = process.is_remote
+              ? "trust-remote"
+              : getTrustClass(process.score);
+
+            return `
+              <tr>
+                <td class="process-name">${process.name}</td>
+                <td>${process.pid}</td>
+                <td>${parseFloat(process.cpu || 0).toFixed(1)}%</td>
+                <td>
+                  <span class="trust-pill ${trustClass}"><span class="trust">${process.score}</span></span>
+                </td>
+                <td>
+                  ${process.reason}
+                  ${process.is_remote ? '<span class="remote-badge">Remote Tool Detected</span>' : ""}
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="kill-btn ${allowKill ? "danger" : "disabled"}"
+                    data-pid="${process.pid}"
+                    data-name="${sanitizeAttribute(process.name)}"
+                    ${allowKill ? "" : "disabled"}
+                  >
+                    Kill
+                  </button>
+                </td>
+              </tr>
+            `;
+          })
+          .join("");
+      }
+
+      function updateSummary(data) {
+        document.getElementById("trustScore").innerText = hasScanned
+          ? currentStatus.trust
+          : "--";
+        document.getElementById("procCount").innerText = data.length;
+        document.getElementById("scanTime").innerText =
+          new Date().toLocaleTimeString();
+        document.getElementById("threatLevel").innerText = hasScanned
+          ? currentStatus.threat_level || currentStatus.threat
+          : "--";
+
+        // update banner based on scanCompleted and remoteDetected
+        alertBanner.style.display = "block";
+        alertBanner.classList.remove("danger", "neutral", "safe");
+
+        if (!scanCompleted) {
+          alertBanner.classList.add("neutral");
+          alertBanner.textContent = "⚠ System not scanned";
+        } else if (remoteDetected) {
+          alertBanner.classList.add("danger");
+          alertBanner.textContent =
+            "⚠ Remote Access Tool Detected — Close it to continue.";
+        } else {
+          alertBanner.classList.add("safe");
+          alertBanner.textContent = "✅ System Ready for Exam";
+        }
+      }
+
+      function renderDashboard() {
+        const visibleProcesses = getVisibleProcesses();
+        renderTable(visibleProcesses);
+        renderConnections(latestScan);
+        updateSummary(latestScan);
+      }
+
+      async function runScan() {
+        loader.style.display = "flex";
+        document.querySelector(".scan-btn").classList.add("scanning");
+        if (scanStatusEl) {
+          scanStatusEl.classList.add("scanning");
+          scanStatusEl.textContent = "Scanning...";
+        }
+        console.log("Calling /scan");
+
+        try {
+          const response = await fetch("/scan");
+          const data = await response.json();
+          console.log("/scan response", data);
+
+          if (!response.ok) {
+            throw new Error(data.message || "Scan failed.");
+          }
+
+          // Response may be structured { processes: [...] } or legacy array
+          if (Array.isArray(data)) {
+            latestScan = data;
+          } else if (data && Array.isArray(data.processes)) {
+            latestScan = data.processes;
+            // update scan flags from server (explicit)
+            scanCompleted = Boolean(
+              data.scan_completed || data.scanned || true,
+            );
+            remoteDetected =
+              data.remote_access_detected === undefined
+                ? null
+                : Boolean(data.remote_access_detected);
+            currentStatus.remote_access_detected = remoteDetected;
+            if (data.threat_level)
+              currentStatus.threat_level = data.threat_level;
+          } else {
+            latestScan = [];
+            scanCompleted = Boolean(
+              data.scan_completed || data.scanned || true,
+            );
+            remoteDetected =
+              data.remote_access_detected === undefined
+                ? null
+                : Boolean(data.remote_access_detected || false);
+          }
+
+          hasScanned = latestScan.length > 0;
+          await fetchSystemStatus();
+          updateScanStatusUI();
+          renderDashboard();
+          showToast("System scan completed.");
+        } catch (error) {
+          console.error("Scan failed", error);
+          showToast("Failed to scan the system.", true);
+        } finally {
+          loader.style.display = "none";
+          document.querySelector(".scan-btn").classList.remove("scanning");
+          if (scanStatusEl) scanStatusEl.classList.remove("scanning");
+        }
+      }
+
+      async function killProcess(pid, name) {
+        const process = latestScan.find((item) => item.pid === pid);
+
+        if (!process || Number(process.score) > 60) {
+          showToast("Only low-trust processes can be terminated.", true);
+          return;
+        }
+
+        if (killRequestInFlight) {
+          showToast("A kill request is already in progress.", true);
+          return;
+        }
+
+        const confirmed = window.confirm(
+          "Are you sure you want to terminate this process?",
+        );
+
+        if (!confirmed) {
+          return;
+        }
+
+        try {
+          killRequestInFlight = true;
+          console.log(`Calling /kill/${pid}`);
+          const response = await fetch(`/kill/${pid}`, { method: "POST" });
+          const result = await response.json();
+          console.log(`/kill/${pid} response`, result);
+
+          showToast(result.message, !response.ok || !result.success);
+
+          if (response.ok && result.success) {
+            await runScan();
+          }
+        } catch (error) {
+          console.error(`Kill request failed for PID ${pid}`, error);
+          showToast("Unable to terminate the selected process.", true);
+        } finally {
+          killRequestInFlight = false;
+        }
+      }
+
+      async function checkSystem() {
+        // Client-side strict checks first
+        if (!scanCompleted) {
+          window.alert("Please scan your system before starting the exam.");
+          return;
+        }
+
+        if (remoteDetected) {
+          window.alert(
+            "Remote access tool detected. Please close it to continue.",
+          );
+          return;
+        }
+
+        // Server-side verification for safety (prevents URL bypass)
+        const overlay = document.getElementById("overlay");
+        const text = document.getElementById("overlayText");
+        overlay.style.display = "flex";
+        text.innerText = "Verifying server state...";
+
+        try {
+          const resp = await fetch("/check-system", { method: "POST" });
+          const body = await resp.json();
+          overlay.style.display = "none";
+
+          if (body.status !== "SAFE") {
+            window.alert(body.message || "System not eligible for exam.");
+            return;
+          }
+
+          // safe to proceed
+          text.innerText = "System secure. Opening exam...";
+          setTimeout(() => {
+            window.location.href = "/portal/";
+          }, 400);
+        } catch (err) {
+          overlay.style.display = "none";
+          console.error("Server verification failed", err);
+          showToast("Unable to verify system status.", true);
+        }
+      }
+
+      async function openUniversityPortal() {
+        try {
+          // Client-side checks first
+          if (!scanCompleted) {
+            document.getElementById("alertSound").play();
+            window.alert("Please scan your system before opening the portal.");
+            return;
+          }
+
+          if (remoteDetected) {
+            document.getElementById("alertSound").play();
+            window.alert("Remote access tool detected. Close it to continue.");
+            return;
+          }
+
+          // server verification
+          const data = await fetchSystemStatus();
+          if (data.remote_access_detected || data.remote) {
+            document.getElementById("alertSound").play();
+            window.alert("Remote access tool detected. Close it to continue.");
+            return;
+          }
+
+          window.open("https://exam.glauniversity.in", "_blank");
+        } catch (error) {
+          console.error("External portal check failed", error);
+          showToast("Unable to verify system status.", true);
+        }
+      }
+
+      table.addEventListener("click", (event) => {
+        const button = event.target.closest(".kill-btn.danger");
+
+        if (!button || button.disabled) {
+          return;
+        }
+
+        const pid = Number(button.dataset.pid);
+        const name = button.dataset.name || "Unknown Process";
+
+        if (!pid) {
+          console.error("Invalid PID for kill action", button.dataset.pid);
+          showToast("Invalid process selected.", true);
+          return;
+        }
+
+        killProcess(pid, name);
+      });
+
+      processSearch.addEventListener("input", (event) => {
+        searchTerm = event.target.value;
+        renderTable(getVisibleProcesses());
+      });
+
+      cpuSort.addEventListener("change", (event) => {
+        sortOrder = event.target.value;
+        renderTable(getVisibleProcesses());
+      });
+
+      if (trustSort) {
+        trustSort.addEventListener("change", (e) => {
+          trustSortOrder = e.target.value || "default";
+          renderTable(getVisibleProcesses());
+        });
+      }
+
+      if (filterLowTrustEl) {
+        filterLowTrustEl.addEventListener("change", (e) => {
+          filterLowTrust = Boolean(e.target.checked);
+          renderTable(getVisibleProcesses());
+        });
+      }
+
+      darkModeBtn.addEventListener("click", () => setTheme("dark"));
+      lightModeBtn.addEventListener("click", () => setTheme("light"));
+
+      setTheme(localStorage.getItem("srta-theme") || "light");
+
+      // Initial UI state: do NOT reuse previous scans; user must run a scan
+      updateScanStatusUI();
+      updateExamButton();
     </script>
-
-</body>
-
+  </body>
 </html>
